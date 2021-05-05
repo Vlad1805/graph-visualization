@@ -1,6 +1,7 @@
 #!/bin/bash
 dots='.'
 yes='y'
+no='n'
 clear
 
 function waiting() {
@@ -21,9 +22,12 @@ do
     if [ $input == $yes ]
     then
         break
+    elif [ $input == $no ]
+    then
+        echo "Bye!"
+        exit 0
     else
-        echo Bye!
-        exit 1
+        echo "Wrong button!"
     fi
 done
     
