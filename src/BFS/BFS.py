@@ -5,6 +5,7 @@ def ReadGraph():
     G = nx.DiGraph()
     f = open("input.txt", "r")
     nodes = int(f.readline())
+    
     for i in range(nodes):
         line = list(map(int, (f.readline().split())))
         for j in range(nodes):
@@ -21,12 +22,14 @@ def ReadGraph():
 def DrawGraph(G, color_map):
     node_labels = nx.get_node_attributes(G, 'degree')
     plt.figure(num="BFS", figsize=(11, 7))
+
     plt.subplot(121)
     plt.title("Initial graph")
     pos = nx.spring_layout(G)
     nx.draw(G, pos, node_color=color_map, with_labels=True)
     edge_labels = dict([((u,v,), d['length']) for u, v, d in G.edges(data = True)])
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
+    
     plt.subplot(122)
     plt.title("Degree graph")
     nx.draw(G, pos, node_color=color_map, with_labels=True, labels=node_labels)
@@ -39,6 +42,7 @@ def BFS(G, start):
     G.nodes[start]['degree'] = 0
     color_map = []
     color_map.append('green')
+
     while len(queue) > 0:
         front = queue.pop(0)
         print(front)
