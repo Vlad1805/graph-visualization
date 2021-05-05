@@ -1,3 +1,5 @@
+# Copyright 2021 Stanciu Vlad
+
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -5,7 +7,7 @@ def ReadGraph():
     G = nx.DiGraph()
     f = open("input.txt", "r")
     nodes = int(f.readline())
-    
+
     for i in range(nodes):
         line = list(map(int, (f.readline().split())))
         for j in range(nodes):
@@ -31,7 +33,7 @@ def DrawGraph(G, color_map):
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
     
     plt.subplot(122)
-    plt.title("Degree graph")
+    plt.title("Distance graph")
     nx.draw(G, pos, node_color=color_map, with_labels=True, labels=node_labels)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
     plt.show()
