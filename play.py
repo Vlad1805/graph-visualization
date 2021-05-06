@@ -79,6 +79,7 @@ while True:
             response = input()            
             
             if response == 'r':
+                buff = input()
                 print(ques2)
                 choice = input(ques2)
                 continue
