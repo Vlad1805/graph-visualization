@@ -3,6 +3,7 @@
 
 import os
 import time
+import subprocess
 
 def load_message(mes, n):
     dots = "."
@@ -18,7 +19,7 @@ def load_message(mes, n):
 sleep = "sleep 10"
 clear = "clear"
 
-networkx = "pip3 install neworkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
+networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
 
 bfs = "./src/BFS/BFS.py"
