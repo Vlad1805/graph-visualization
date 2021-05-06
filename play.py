@@ -79,12 +79,11 @@ while True:
             response = input()            
             
             if response == 'r':
-                buff = input()
-                print(ques2)
-                choice = input(ques2)
+                choice = input("Retry your choice for algorithm: ")
                 continue
             else:
                 break
+
         else:
             choice = input("Not a valid choice! Retry: ")        
     else:
@@ -113,7 +112,7 @@ while True:
     
     elif response == 'e':
         break
-    
+
     else:
         response = input("Not a valid choice! Retry or exit [q]: ")
         if response == 'q':
