@@ -133,4 +133,3 @@ if response == 'i':
             print(matrix[i][j], end = " ")
         print()
     print(f"Starting root: {root}")
-    
