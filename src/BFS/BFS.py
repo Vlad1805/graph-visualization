@@ -1,10 +1,11 @@
 #!/bin/python3
 import networkx as nx
 import matplotlib.pyplot as plt
+import sys
 
 def ReadGraph():
     G = nx.DiGraph()
-    f = open("input.txt", "r")
+    f = open(f"{sys.argv[1]}", "r")
     nodes = int(f.readline())
     for i in range(nodes):
         line = list(map(int, (f.readline().split())))
