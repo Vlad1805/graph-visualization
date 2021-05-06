@@ -1,15 +1,20 @@
 #!/bin/python3
+# Copyright 2021 Butnariu Bogdan-Mihai
+
 import os
 import time
 
 sleep = "sleep 10"
 clear = "clear"
-networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
+
+networkx = "pip3 install neworkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
+
 bfs = "./src/BFS/BFS.py"
 dfs = "./src/DFS/DFS.py"
 dij = "./src/Dijkstra/Dijkstra.py"
 flo = "./src/Floyd_Warshall/Floyd_Warshall.py"
+
 intro = "Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit"
 ques1 = "Do you have installed all the packages needed? [y/n]: "
 ques2 = "Select an algorithm for the graph:\n\t1: BFS\n\t2: DFS\n\t3: Dijkstra\n\t4: Floyd Warsahll\nChoice: "
@@ -19,7 +24,7 @@ algo = {
     '1' : 'BFS',
     '2' : 'DFS',
     '3' : 'Dijkstra',
-    '4' : 'Floyd Warshall'
+    '4' : 'Floyd_Warshall'
 }
 
 os.system(clear)
@@ -75,18 +80,8 @@ while True:
         pass
         break
     elif response == 'e':
-        if choice == '1':
-            os.system(bfs)      
-            break
-        elif choice == '2':
-            os.system(dfs + " src/BFS/input.txt")
-            break
-        elif choice == '3':
-            os.system(dij + " src/BFS/input.txt")
-            break
-        elif choice == '4':
-            os.system(flo + " src/BFS/input.txt")
-            break
+        os.system(f"./src/{algo[choice]}/{algo[choice]}.py")
+        break
     else:
         response = input("Not a valid choice! Retry or exit [q]: ")
         if response == 'q':
