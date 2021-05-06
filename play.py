@@ -74,6 +74,15 @@ while True:
 response = input()
 while True:
     if response == 'i':
-        
+        pass
+        break
+    elif response == 'e':
+        pass
+        break
+    else:
+        response = input("Not a valid choice! Retry or exit [q]: ")
+        if response == 'q':
+            print("Bye!")
+            exit()
 
     
