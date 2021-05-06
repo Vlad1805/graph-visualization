@@ -129,7 +129,5 @@ if response == 'i':
     print(f"n: {n}")
     print('matrix:')
     for i in range(n):
-        for j in range(n):
-            print(matrix[i][j], end = " ")
-        print()
+        print(matrix[i])
     print(f"Starting root: {root}")
