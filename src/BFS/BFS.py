@@ -44,7 +44,9 @@ def BFS(G, start):
     queue.append(start)
     G.nodes[start]['degree'] = 0
     color_map = []
-    color_map.append('green')
+    for _ in range(len(G.nodes)):
+        color_map.append('blue')
+    color_map[start] = 'green'
 
     while len(queue) > 0:
         front = queue.pop(0)
@@ -55,9 +57,7 @@ def BFS(G, start):
                 queue.append(i)
                 G.nodes[i]['degree'] = G.nodes[front]['degree'] + 1
                 if G.nodes[i]['degree'] % 2 == 0:
-                    color_map.append('red')
-                else:
-                    color_map.append('blue')
+                    color_map[i] = 'red'
     return color_map
 
 
