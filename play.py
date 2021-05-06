@@ -6,6 +6,10 @@ sleep = "sleep 10"
 clear = "clear"
 networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
+bfs = "./src/BFS/BFS.py"
+dfs = "./src/DFS/DFS.py"
+dij = "./src/Dijkstra/Dijkstra.py"
+flo = "./src/Floyd_Warshall/Floyd_Warshall.py"
 intro = "Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit"
 ques1 = "Do you have installed all the packages needed? [y/n]: "
 ques2 = "Select an algorithm for the graph:\n\t1: BFS\n\t2: DFS\n\t3: Dijkstra\n\t4: Floyd Warsahll\nChoice: "
@@ -77,12 +81,22 @@ while True:
         pass
         break
     elif response == 'e':
-        pass
-        break
+        if choice == '1':
+            os.system(bfs + " src/BFS/input.txt")      
+            break
+        elif choice == '2':
+            os.system(dfs + " src/BFS/input.txt")
+            break
+        elif choice == '3':
+            os.system(dij + " src/BFS/input.txt")
+            break
+        elif choice == '4':
+            os.system(flo + " src/BFS/input.txt")
+            break
     else:
         response = input("Not a valid choice! Retry or exit [q]: ")
         if response == 'q':
             print("Bye!")
             exit()
-
+print("Done!")
     
