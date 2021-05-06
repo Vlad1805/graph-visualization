@@ -1,3 +1,4 @@
+#!/bin/python3
 # Copyright 2021 Stanciu Vlad
 
 import networkx as nx
