@@ -36,34 +36,35 @@ algo = {
     '4' : 'Floyd_Warshall'
 }
 
+# loading screen
 os.system(clear)
-
 load_message(intro, 5)
 
+# 1# choice screen
 response = input()
-while True:
-    if response == 'q':
+while True: 
+    if response == 'y':
+        break
+    elif response == 'q':
         print("Bye!")
         exit()
         break
-    elif response == 'y':
-        break
     else:
         print("Wrong button!")
         response = input()
 
-print(ques1, end='')
-response = input()
+
+response = input(ques1)
 while True:
-    if response == 'y' or response == 'n':
+    if response == 'y':
         break
+    elif response == 'n':
+        os.system(networkx)
+        os.system(matplotlib)
+        break    
     else:
         print("Wrong button!")
         response = input()
-
-if response == 'n':
-    os.system(networkx)
-    os.system(matplotlib)
 
 choice = input(ques2)
 while True:
@@ -74,7 +75,7 @@ while True:
             response = input()            
             
             if response == 'r':
-                choice = input("Retry your choice for algorithm: ")
+                choice = input("Choice: ")
                 continue
             else:
                 break
@@ -85,24 +86,27 @@ while True:
         choice = input("Not a number! Retry: ")
 
 while True:
-    if response == 'i':
+    if response == 'e':
+        break
+
+    elif response == 'i':
        
         n = int(input("Enter the number 'n' for n*n matrix: "))
+        
         matrix = []
         for i in range(n):
             print(f"Enter the {i+1} row, {n} numbers are expected:")
             
             string = input()
-            l = list(string.split(" "))
-            l = [i for i in l if i.isnumeric()] 
+            elements = list(string.split(" "))
+            elements = [i for i in elements if i.isnumeric()] 
             
-            while len(l) < n or len(l) > n:
+            while len(elements) < n or len(elements) > n:
                 print("Gresit.")
                 string = input()
-                l = list(string.split(" "))
-                l = [i for i in l if i.isnumeric()]  
+                elements = list(string.split(" "))
+                elements = [i for i in l if i.isnumeric()]  
             matrix.append(l)
-        print(matrix)
         
         root = int(input("Enter the starting root: "))
         
@@ -118,28 +122,6 @@ while True:
         
         out.write(f"{root}")
         out.close()
-
-        load_message("Loading", 6)
-        print("Done! Now you have a graph!")
-
-        print("\nYour input was:")
-        print(f"n: {n}")
-        print('matrix:')
-        
-        for i in range(n):
-            for j in range(n):
-                if j == n - 1:
-                    print(f"{matrix[i][j]}")
-                else:
-                    print(f"{matrix[i][j]}", end=" ")
-        
-        print(f"Starting root: {root}")
-
-        break
-    
-    elif response == 'e':
-        load_message("Loading", 6)
-        print("Done! Now you have a graph!")
         break
 
     else:
@@ -148,4 +130,18 @@ while True:
             print("Bye!")
             exit()
 
+load_message("Loading", 6)
 os.system(f"./src/{algo[choice]}/{algo[choice]}.py")
+print("Done! Now you have a graph!")
+
+if response == 'i':
+    print("\nYour input was:")
+    print(f"n: {n}")
+    print('matrix:')    
+    for i in range(n):
+        for j in range(n):
+            if j == n - 1:
+                print(f"{matrix[i][j]}")
+            else:
+                print(f"{matrix[i][j]}", end=" ")
+    print(f"Starting root: {root}")
