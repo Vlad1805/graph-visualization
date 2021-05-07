@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # Copyright 2021 Butnariu Bogdan-Mihai
 
+# libraries
 import os
 import time
-import subprocess
 
-def load_message(mes, n):
+def load_message(mes, n): # function that add n '.' after mes, used for loading screens
     dots = "."
     for i in range(n):
         print(mes + dots)
@@ -16,24 +16,19 @@ def load_message(mes, n):
         else:
             continue
 
-sleep = "sleep 10"
+# variables
+   # variables for bash commands
 clear = "clear"
-
 networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
-
-bfs = "./src/BFS/BFS.py"
-dfs = "./src/DFS/DFS.py"
-dij = "./src/Dijkstra/Dijkstra.py"
-flo = "./src/Floyd_Warshall/Floyd_Warshall.py"
-
+   # variables for screens
 intro = "Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit"
 ques1 = "Do you have installed all the packages needed? [y/n]: "
 ques2 = "Select an algorithm for the graph:\n\t1: BFS\n\t2: DFS\n\t3: Dijkstra\n\t4: Floyd Warsahll\nChoice: "
-
+   # variables for input.txt
 root = int()
 n = int()
-
+   # dictionary for algorithms
 algo = {
     '1' : 'BFS',
     '2' : 'DFS',
@@ -95,8 +90,19 @@ while True:
         n = int(input("Enter the number 'n' for n*n matrix: "))
         matrix = []
         for i in range(n):
-            print(f"Enter the {i+1} row, with space between numbers:")
-            matrix.append(input())
+            print(f"Enter the {i+1} row, {n} numbers are expected:")
+            
+            string = input()
+            l = list(string.split(" "))
+            l = [i for i in l if i.isnumeric()] 
+            
+            while len(l) < n or len(l) > n:
+                print("Gresit.")
+                string = input()
+                l = list(string.split(" "))
+                l = [i for i in l if i.isnumeric()]  
+            matrix.append(l)
+        print(matrix)
         
         root = int(input("Enter the starting root: "))
         
@@ -104,13 +110,36 @@ while True:
         out.write(f"{n}\n")
         
         for i in range(n):
-            out.write(f"{matrix[i]}\n")
+            for j in range(n):
+                if j == n - 1:
+                    out.write(f"{matrix[i][j]}\n")
+                else:
+                    out.write(f"{matrix[i][j]} ")
         
         out.write(f"{root}")
         out.close()
+
+        load_message("Loading", 6)
+        print("Done! Now you have a graph!")
+
+        print("\nYour input was:")
+        print(f"n: {n}")
+        print('matrix:')
+        
+        for i in range(n):
+            for j in range(n):
+                if j == n - 1:
+                    print(f"{matrix[i][j]}")
+                else:
+                    print(f"{matrix[i][j]}", end=" ")
+        
+        print(f"Starting root: {root}")
+
         break
     
     elif response == 'e':
+        load_message("Loading", 6)
+        print("Done! Now you have a graph!")
         break
 
     else:
@@ -119,16 +148,4 @@ while True:
             print("Bye!")
             exit()
 
-load_message("Loading", 6)
-
-print("Done! Now you have a graph!")
-
 os.system(f"./src/{algo[choice]}/{algo[choice]}.py")
-
-if response == 'i':
-    print("\nYour input was:")
-    print(f"n: {n}")
-    print('matrix:')
-    for i in range(n):
-        print(matrix[i])
-    print(f"Starting root: {root}")
