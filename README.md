@@ -5,7 +5,7 @@ Run play.py script to open the program or run each file individually to generate
 
 # Copyright 2021
 
-Butnariu Bogdan-Mihai
-Podaru Andrei-Alexandru
-Popescu Silviu
+Butnariu Bogdan-Mihai,
+Podaru Andrei-Alexandru,
+Popescu Silviu,
 Stanciu Vlad
