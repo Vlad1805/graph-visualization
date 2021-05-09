@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 # Copyright 2021 Stanciu Vlad
 
 import networkx as nx
@@ -32,7 +32,7 @@ def DrawGraph(G, D, start):
     color_map[start] = 'green'
 
     # set fixed position of nodes
-    # this is very important as we need the initial graph and BFS graph
+    # this is very important as we need the initial graph and dijkstra graph
     # to look identical
     # we also need the position for weight labels
     pos = nx.spring_layout(G)
