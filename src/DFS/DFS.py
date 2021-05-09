@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 # Copyright 2021 Podaru Andrei-Alexandru
 
 
