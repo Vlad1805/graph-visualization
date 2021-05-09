@@ -31,11 +31,11 @@ def load_message(string, n): # function that adds n '.' after mes, used for load
         os.system(clear)
 
 def entry(): # function that reads the input for matrix
-    n = int(input("Enter the number 'n' for n*n matrix: "))
+    n = int(input("Enter the number 'n' for n*n adjacent matrix: "))
         
     matrix = []
     for i in range(n):
-        print(f"Enter the {i+1} row, {n} numbers are expected:")
+        print(f"Enter the {i+1} row, {n} numbers are expected in a single row:")
             
         string = input()
         elements = list(string.split(" "))
@@ -66,8 +66,8 @@ def input_file(matrix, n, root): # function that write the input on file
     out.close()
 
 def input_print(matrix, n, root): # function that write the input on screen
-    print("\nYour input was:")
-    print('Matrix:')    
+    print("\nYour input was,")
+    print('Adjacent Matrix:')    
     for i in range(n):
         print("   ", end='')
         for j in range(n):
