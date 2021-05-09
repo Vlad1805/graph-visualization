@@ -10,6 +10,7 @@ def ReadGraph():
     f = open("input.txt", "r")
     nodes = int(f.readline())
 
+    # add edges to graph
     for i in range(nodes):
         line = list(map(int, (f.readline().split())))
         for j in range(nodes):
@@ -24,24 +25,32 @@ def ReadGraph():
     return (G, start)
 
 def DrawGraph(G, D, start):
-    #node_labels = nx.get_node_attributes(G, 'degree')
     plt.figure(num="Dijkstra", figsize=(12, 7))
     color_map = []
     for _ in range(len(G.nodes)):
         color_map.append('blue')
     color_map[start] = 'green'
+
+    # set fixed position of nodes
+    # this is very important as we need the initial graph and BFS graph
+    # to look identical
+    # we also need the position for weight labels
+    pos = nx.spring_layout(G)
+
+    # plot initial graph
     plt.subplot(121)
     plt.title("Initial graph")
-    pos = nx.spring_layout(G)
     nx.draw(G, pos, node_color=color_map, with_labels=True)
     edge_labels = dict([((u,v,), d['length']) for u, v, d in G.edges(data = True)])
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
     
+    # plot Dijkstra graph
     plt.subplot(122)
     plt.title("Shortest path graph")
     nx.draw(D, pos, node_color=color_map, with_labels=True)
     edge_labels2 = dict([((u,v,), d['length']) for u, v, d in D.edges(data = True)])
     nx.draw_networkx_edge_labels(D, pos, edge_labels=edge_labels2, label_pos=0.3, font_size=11)
+    
     plt.show()
 
 
@@ -55,12 +64,17 @@ def MinDistance(G, dist, sptSet):
     return min_index
 
 def Dijkstra(G, start):
+    # dist[i] = minimum cost from start to i
     dist = []
+
+    # sptSet[i] = true when we are done with node i
     sptSet = []
+
+    # parent node of node i used to show the minimum cost path
     parent = []
+
     nodes = len(G.nodes)
     
-
     for _ in range(nodes):
         dist.append(sys.maxsize)
         sptSet.append(False)
