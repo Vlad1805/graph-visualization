@@ -5,13 +5,15 @@
 import os
 
 # variables
-   # variables for bash commands
+
+# variables for bash commands
 clear = "clear"
 chmod = "chmod +x src/"
 pip3 = "sudo apt-get install python3-pip >> /dev/null && echo pip3 passed. || echo pip3 failed."
 networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
-   # dictionary for algorithms
+   
+# dictionary for algorithms
 algo = {
     '1' : 'BFS',
     '2' : 'DFS',
@@ -33,7 +35,7 @@ def load_message(string, n): # function that adds n '.' after mes, used for load
         os.system(clear)
 
 def entry(): # function that reads the input for matrix
-    n = int(input("Enter the number 'n' for n*n adjacent matrix: "))
+    n = int(input("Enter the number 'n' for n*n adjacency matrix: "))
         
     matrix = []
     for i in range(n):
@@ -41,7 +43,7 @@ def entry(): # function that reads the input for matrix
             
         string = input()
         elements = list(string.split(" "))
-        elements = [i for i in elements if i.isnumeric()] # this makes a list only with numbers
+        elements = [i for i in elements if i.isnumeric()] # create a list with numbers only
             
         while len(elements) < n or len(elements) > n: # condition for input, a row,  to contain 'n' numbers
             print("Wrong input. Try again: ")
@@ -53,7 +55,7 @@ def entry(): # function that reads the input for matrix
     root = int(input("Enter the starting root: "))
     return matrix, n, root
 
-def input_file(matrix, n, root): # function that write the input on file
+def input_file(matrix, n, root): # function that writes the input on file
     out = open("input.txt", "w")
     out.write(f"{n}\n")
     
@@ -67,9 +69,9 @@ def input_file(matrix, n, root): # function that write the input on file
     out.write(f"{root}")
     out.close()
 
-def input_print(matrix, n, root): # function that write the input on screen
+def input_print(matrix, n, root): # function that writes the input on screen
     print("\nYour input was,")
-    print('Adjacent Matrix:')    
+    print('Adjacency Matrix:')    
     for i in range(n):
         print("   ", end='')
         for j in range(n):
@@ -100,7 +102,7 @@ while True:
         response = input("Wrong button!\n")
 
 # 2nd choice screen, yes or no
-response = input("Do you have installed all the packages needed? [y/n]: ")
+response = input("Do you have all the needed packeges already installed? [y/n]: ")
 while True:
     if response == 'y':
         break
@@ -112,7 +114,7 @@ while True:
     else:
         response = input("Wrong button!\n")
 
-# 3th choice screen, algorithm choice
+# 3rd choice screen, algorithm choice
 choice = input("Select an algorithm for the graph:\n\t1: BFS\n\t2: DFS\n\t3: Dijkstra\n\t4: Floyd Warsahll\nChoice: ")
 while True:
     if choice.isnumeric():
@@ -122,7 +124,7 @@ while True:
             response = input()            
             
             if response == 'r':
-                choice = input("Choice: ") # retry 3th choice
+                choice = input("Choice: ") # retry 3rd choice
                 continue
             else:
                 break
@@ -200,5 +202,5 @@ while True:
             print("Bye!")
             exit()
 
-# command that execute the chosen algorithm
+# command that executes the chosen algorithm
 os.system(f"./src/{algo[choice]}/{algo[choice]}.py")
