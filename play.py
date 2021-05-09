@@ -105,9 +105,9 @@ while True:
     if response == 'y':
         break
     elif response == 'n':
-        os.system(pip3)
-        os.system(networkx)
-        os.system(matplotlib)
+        os.system(pip3) # install python3-pip
+        os.system(networkx) # "---"
+        os.system(matplotlib) # "---"
         break    
     else:
         response = input("Wrong button!\n")
