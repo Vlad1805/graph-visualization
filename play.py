@@ -82,7 +82,8 @@ def input_print(matrix, n, root): # function that write the input on screen
 # clearing the terminal
 os.system(clear)
 
-for key, value in algo.items():
+# permissions for the algoritmhs
+for key in algo.keys():
     os.system(chmod + f"/{algo[key]}/{algo[key]}.py")
 
 # 1st choice screen, yes or quit
