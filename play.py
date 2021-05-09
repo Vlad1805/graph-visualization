@@ -7,6 +7,7 @@ import os
 # variables
    # variables for bash commands
 clear = "clear"
+chmod = "chmod +x src/"
 networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
 matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
    # dictionary for algorithms
@@ -79,6 +80,11 @@ def input_print(matrix, n, root): # function that write the input on screen
 
 # clearing the terminal
 os.system(clear)
+
+for key, value in algo.items():
+    print(key)
+    print(value)
+    os.system(chmod + f"/{algo[key]}/{algo[key]}.py")
 
 # 1st choice screen, yes or quit
 load_message("Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit", 5)
