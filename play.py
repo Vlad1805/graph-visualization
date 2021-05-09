@@ -82,8 +82,6 @@ def input_print(matrix, n, root): # function that write the input on screen
 os.system(clear)
 
 for key, value in algo.items():
-    print(key)
-    print(value)
     os.system(chmod + f"/{algo[key]}/{algo[key]}.py")
 
 # 1st choice screen, yes or quit
