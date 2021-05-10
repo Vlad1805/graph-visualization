@@ -180,7 +180,7 @@ while True:
                 ['-1', '-1', '-1', '0', '4'],
                 ['-1', '-1', '-1', '5', '0']
             ]
-            root = 4
+            root = 2
             
             load_message("Loading", 6)
             print("Done! Now you have a graph!")
