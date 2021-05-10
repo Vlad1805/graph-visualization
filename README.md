@@ -47,8 +47,15 @@ In total, they're are x choices:
                   --- 4 -> Floyd Warshall
     Used for the third question, when the user select the algorithm.
 
+              |--- input
+              |
+4th choice ---|--- example
+              |
+              |--- retry
+    Used for the forth question. Is generating the adjacency matrix. It can be with the user input,
+    one example for each algorithm or you can retry the selection of the algorithm (retry 3rd choice).
 
-4th choice
+In the final part, the script runs the algorithm.py file and a window with the choosen graph in showing.
 
 # Copyright 2021
 

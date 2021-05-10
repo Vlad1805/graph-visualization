@@ -153,6 +153,7 @@ while True:
             print("Done! Now you have a graph!")
             input_file(matrix, n, root)
             input_print(matrix, n, root)
+            break
         
         elif choice == '2':
             n = 6
@@ -170,7 +171,8 @@ while True:
             print("Done! Now you have a graph!")
             input_file(matrix, n, root)
             input_print(matrix, n, root)
-        
+            break
+
         elif choice == '3':
             n = 5
             matrix = [
@@ -186,8 +188,28 @@ while True:
             print("Done! Now you have a graph!")
             input_file(matrix, n, root)
             input_print(matrix, n, root)
-        break
-
+            break
+        
+        elif choice == '4':
+            '''
+            n = 5
+            matrix = [
+                ['0', '2', '7', '-1', '-1'],
+                ['-1', '0', '3', '8', '5'],
+                ['-1', '2', '0', '0', '-1'],
+                ['-1', '-1', '-1', '0', '4'],
+                ['-1', '-1', '-1', '5', '0']
+            ]
+            root = 2
+            
+            load_message("Loading", 6)
+            print("Done! Now you have a graph!")
+            input_file(matrix, n, root)
+            input_print(matrix, n, root)
+            break
+            '''
+            pass
+    
     elif response == 'i': # input choice
         matrix, n, root = entry()
         load_message("Loading", 6)
