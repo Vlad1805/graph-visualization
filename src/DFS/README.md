@@ -15,7 +15,7 @@ n * n adjacency matrix, with one line / row => n lines with n integers each,
 start_node (node from which you begin the traversal) -> integer
 All graph edges have length 1.
 
-#DFS implementation
+# DFS implementation
 
 DFS function is implemented recursively, using discovery times as visited array.
 The result can be seen by the user in the form of another graph, in which nodes
@@ -29,7 +29,7 @@ Modules used:
 -networkx -> graph manipulation and support for visualization
 -matplotlib.pyplot -> plotting
 
-#output
+# output
 
 Left: initial graph
 Right: graph after DFS traversal, with timestamps as node labels

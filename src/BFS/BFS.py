@@ -57,8 +57,8 @@ def BFS(G, start):
     # color map is used in draw function to set node colors
     color_map = []
     for _ in range(len(G.nodes)):
-        color_map.append('blue')
-    color_map[start] = 'green'
+        color_map.append('coral')
+    color_map[start] = 'seagreen'
 
     while len(queue) > 0:
         front = queue.pop(0)
@@ -71,7 +71,7 @@ def BFS(G, start):
                 # mark node as visited
                 G.nodes[i]['distance'] = G.nodes[front]['distance'] + 1
                 if G.nodes[i]['distance'] % 2 == 0:
-                    color_map[i] = 'red'
+                    color_map[i] = 'r'
     return color_map
 
 

@@ -60,13 +60,13 @@ def DrawGraph(G, color_map):
     plt.subplot(121)
     plt.title("Initial graph")
     pos = nx.spring_layout(G)
-    nx.draw(G, pos, node_color=color_map, with_labels=True)
+    nx.draw(G, pos, node_color=color_map, with_labels=True, node_size=400)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
     
     #plot graph with traversal information
     plt.subplot(122)
     plt.title("Discovery and completion time - DFS")
-    nx.draw(G, pos, node_color=color_map, with_labels=True, labels=node_labels)
+    nx.draw(G, pos, node_color=color_map, with_labels=True, labels=node_labels, node_size=400)
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, label_pos=0.3, font_size=11)
     plt.show()
 
@@ -102,10 +102,11 @@ if __name__ == "__main__":
     #traverse graph
     DFS(G, start)
 
-    #color all nodes in green
+    #color all nodes in blue except start which is green
     color_map = []
     for i in range(len(G.nodes)):
-        color_map.append('green')
+        color_map.append('slateblue')
+    color_map[start] = 'seagreen'
 
     #draw initial graph and final graph (after traversal)
     #with timestamps

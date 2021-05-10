@@ -28,8 +28,8 @@ def DrawGraph(G, D, start):
     plt.figure(num="Dijkstra", figsize=(12, 7))
     color_map = []
     for _ in range(len(G.nodes)):
-        color_map.append('blue')
-    color_map[start] = 'green'
+        color_map.append('slateblue')
+    color_map[start] = 'seagreen'
 
     # set fixed position of nodes
     # this is very important as we need the initial graph and dijkstra graph

@@ -9,9 +9,9 @@ import os
 # variables for bash commands
 clear = "clear"
 chmod = "chmod +x src/"
-pip3 = "sudo apt-get install python3-pip >> /dev/null && echo pip3 passed. || echo pip3 failed."
-networkx = "pip3 install networkx >> /dev/null && echo Networkx passed. || echo Networkx failed."
-matplotlib = "pip3 install matplotlib >> /dev/null && echo Matplotlib passed. || echo Matplotlib failed."
+pip3 = "sudo apt-get install python3-pip && echo pip3 passed. || echo pip3 failed."
+networkx = "pip3 install networkx && echo Networkx passed. || echo Networkx failed."
+matplotlib = "pip3 install matplotlib && echo Matplotlib passed. || echo Matplotlib failed."
    
 # dictionary for algorithms
 algo = {
