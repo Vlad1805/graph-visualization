@@ -8,6 +8,8 @@ import sys
 import networkx as nx
 import matplotlib.pyplot as plt
 
+INF = sys.maxsize
+
 def ReadGraph():
     # directed graph
     G = nx.DiGraph()
@@ -16,16 +18,21 @@ def ReadGraph():
     # number of nodes
     nodes = int(f.readline())
 
+    dist = [[0 for x in range(nodes)] for y in range(nodes)] 
+
     # add edges & length to graph
     for i in range(nodes):
         line = list(map(int, (f.readline().split())))
         for j in range(nodes):
             # verifies if there is an edge from node i to j
             if line[j] > 0:
-                G.add_edge(i, j, length = line[j])
+                G.add_edge(i, j, length=line[j])
+                dist[i][j] = line[j]
+            else:
+                dist[i][j] = INF
 
 
-    return G
+    return G, dist
 
 # plots initial graph
 def DrawGraph(G, color_map):
@@ -49,42 +56,32 @@ def DrawGraph(G, color_map):
 
 # implementation of Floyd Warshall algorithm
 # INF <-> there is no path between two nodes 
-INF = sys.maxsize
-def FW(G):
 
-    w = len(G.nodes)
-    dist = [[0 for x in range(w)] for y in range(w)] 
-
+def FW(G, dist):
     color_map = []
 
     for i in range(len(G.nodes)):
         color_map.append('coral')
 
     vertices = len(G.nodes)
-
-    # create initial minimum-distrance matrix = dist
-    for u in range(vertices):
-        for v in range(vertices):
-            if u == v:
-                dist[u][v] = INF
-            elif G.edges[u][v]["length"] <= 0:
-                dist[u][v] = INF
-            else:
-                dist[u][v] = G.edges[u][v]["length"]
-
-    # update the matrix with the minimum distance between each pair of nodes
+    
     for k in range(vertices):
         for i in range(vertices):
             for j in range(vertices):
                 if dist[i][j] > dist[i][k] + dist[k][j]:
                     dist[i][j] = dist[i][k] + dist[k][j]
 
+    for i in range(vertices):
+        for j in range(vertices):
+            if dist[i][j] == INF:
+                dist[i][j] = 'INF'
+
     return (dist, color_map)
 
 
 if __name__ == "__main__":
-    G = ReadGraph()
-    tup = FW(G)
+    G, dist = ReadGraph()
+    tup = FW(G, dist)
     # print the distance matrix
     for i in tup[0]:
         print(i)
