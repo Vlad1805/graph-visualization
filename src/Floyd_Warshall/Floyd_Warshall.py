@@ -64,7 +64,7 @@ def FW(G, dist):
         color_map.append('coral')
 
     vertices = len(G.nodes)
-    
+
     for k in range(vertices):
         for i in range(vertices):
             for j in range(vertices):
@@ -82,9 +82,13 @@ def FW(G, dist):
 if __name__ == "__main__":
     G, dist = ReadGraph()
     tup = FW(G, dist)
+
     # print the distance matrix
+    j = 0
     for i in tup[0]:
+        print(f"Distance list node {j}:", end=" ")
         print(i)
+        j += 1
 
     # plot initial graph
     DrawGraph(G, tup[1])
