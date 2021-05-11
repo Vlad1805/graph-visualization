@@ -89,7 +89,7 @@ for key in algo.keys():
     os.system(chmod + f"/{algo[key]}/{algo[key]}.py")
 
 # 1st choice screen, yes or quit
-load_message("Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit", 5)
+print("Welcome to Graph Visualization Tool! Press 'y' to continue or 'q' to exit!")
 response = input()
 while True: 
     if response == 'y':
@@ -100,6 +100,8 @@ while True:
         break
     else:
         response = input("Wrong button!\n")
+load_message('', 5)
+os.system(clear)
 
 # 2nd choice screen, yes or no
 response = input("Do you have all the needed packeges already installed? [y/n]: ")
