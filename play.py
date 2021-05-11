@@ -193,7 +193,6 @@ while True:
             break
         
         elif choice == '4':
-            '''
             n = 5
             matrix = [
                 ['0', '2', '7', '-1', '-1'],
@@ -209,8 +208,7 @@ while True:
             input_file(matrix, n, root)
             input_print(matrix, n, root)
             break
-            '''
-            pass
+
     
     elif response == 'i': # input choice
         matrix, n, root = entry()
